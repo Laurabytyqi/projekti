@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Rooms</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Rooms</h1>
+        <div id="room-results"></div>
+    </div>
+
+    <script>
+        const rooms = [
+            {
+                name: "Ocean View Suite",
+                location: "Beachside",
+                price: 200,
+                image: "beachside.jpg",
+                description: "Enjoy breathtaking views of the ocean in this luxurious suite."
+            },
+            {
+                name: "Mountain Retreat",
+                location: "Mountain",
+                price: 150,
+                image: "mountain.jpg",
+                description: "Escape to a cozy retreat nestled in the mountains."
+            },
+            {
+                name: "Downtown Apartment",
+                location: "City Center",
+                price: 100,
+                image: "citycenter.jpg",
+                description: "Experience the vibrant city life in this modern apartment."
+            },
+            {
+                name: "Lakeside Cabin",
+                location: "Lakeside",
+                price: 120,
+                image: "lakeside.jpg",
+                description: "Relax by the lake in a charming and peaceful cabin."
+            }
+        ];
+
+        const params = new URLSearchParams(window.location.search);
+        const locationInput = params.get("location") || "";
+        const checkin = params.get("checkin") || "";
+        const checkout = params.get("checkout") || "";
+        const guests = params.get("guests") || "";
+
+        const filteredRooms = rooms.filter(room =>
+            room.location.toLowerCase().includes(locationInput.toLowerCase())
+        );
+
+        const roomResults = document.getElementById("room-results");
+        if (filteredRooms.length > 0) {
+            roomResults.innerHTML = filteredRooms.map(room => `
+                <div class="room">
+                    <img src="${room.image}" alt="${room.name}" style="width:100%; height:200px; border-radius:10px; object-fit:cover;">
+                    <h2>${room.name}</h2>
+                    <p><strong>Location:</strong> ${room.location}</p>
+                    <p><strong>Price:</strong> $${room.price}/night</p>
+                    <p>${room.description}</p>
+                    <button onclick="reserveRoom('${room.name}')">Reserve</button>
+                </div>
+            `).join("");
+        } else {
+            roomResults.innerHTML = `<p>No rooms found for "${locationInput}". Please try another location.</p>`;
+        }
+
+        function reserveRoom(roomName) {
+            alert(`You have reserved "${roomName}". Enjoy your stay!`);
+        }
+    </script>
+</body>
+</html>
