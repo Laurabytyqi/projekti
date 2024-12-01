@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AboutUs</title>
+    <link rel="stylesheet" href="style1.css">
+    <script src="https://kit.fontawesome.com/a4bae2e268.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <img src="logo.png" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+            <div class="register-container">
+                <button class="register-button" onclick="toggleForm()">Register Now</button>
+                <!-- Dropdown Form -->
+                <div class="dropdown-form" id="registerForm">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="submit-button">Register</button>
+                    </form>
+                    <div id="successMessage" style="display: none; margin-top: 20px; color: green;">
+                        You have been successfully registered!
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="aboutus">
+        <h2>About Us</h2>
+        <p>Welcome to <b>BnB</b>, your gateway to unique and memorable stays!<br><br>At BnB, we believe that every trip should feel like coming home, no matter where you are. Whether you’re seeking a cozy retreat, a luxurious escape, or a unique local experience, our platform connects you to one-of-a-kind accommodations that suit your style and budget.
+            <br><br>
+            <b>Our Mission</b><br><br>
+            Our mission is to make travel accessible, comfortable, and enriching for everyone. We aim to create connections between hosts and guests, fostering communities that celebrate diversity, hospitality, and trust.
+            <br><br>
+            <b>What We Offer</b>
+            <br><br>
+            <b>Exceptional Stays:</b> Discover curated properties ranging from charming cottages to modern apartments.
+            <br>
+            <b>Seamless Booking:</b> Effortless and secure booking to make your travel planning stress-free.
+            <br>
+            <b>Support When You Need It:</b> Our dedicated team is here 24/7 to ensure your experience is nothing short of exceptional.
+            <br><br>
+            <b>Why Choose BnB?</b><br><br>
+            We’re not just about places to stay; we’re about the stories you create. With BnB, you can explore destinations like a local, find hidden gems, and enjoy a personalized travel experience that you’ll cherish forever.
+            <br><br>
+            <i>Join the BnB community today and let us help you find your perfect stay, wherever your journey takes you.</i></p>
+    </div>
+
+    <div class="footer">
+        <a href="https://facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+        <hr>
+        <p>Copyright © 2024 Bnb. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        function toggleForm() {
+    const form = document.getElementById("registerForm");
+    if (form.style.display === "block") {
+        form.style.display = "none";
+    } else {
+        form.style.display = "block";
+    }
+}
+const form = document.getElementById("registerForm");
+const successMessage = document.getElementById("successMessage");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault(); 
+    successMessage.style.display = "block";
+
+    form.reset();
+});
+    </script>
+
+</body>
+</html>
