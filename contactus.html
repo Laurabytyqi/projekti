@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us & Contact Us</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://kit.fontawesome.com/a4bae2e268.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   
+    <header>
+        <div class="header">
+            <nav>
+                <img src="logo.png" class="logo">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+                <div class="register-container">
+                    <button class="register-button" onclick="toggleForm()">Register Now</button>
+                    <div class="dropdown-form" id="registerForm">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+                            <button type="submit" class="submit-button">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>We’d love to hear from you! Whether you have questions, feedback, or inquiries, feel free to reach out to us through the form below.</p>
+            <form action="#" method="post" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+            <div id="successMessage" style="display: none; margin-top: 20px; color: green;">
+                You have been successfully registered!
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <a href="https://facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+        <hr>
+        <p>Copyright © 2024 Bnb. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        function toggleForm() {
+    const form = document.getElementById("registerForm");
+    if (form.style.display === "block") {
+        form.style.display = "none";
+    } else {
+        form.style.display = "block";
+    }
+}
+const form = document.getElementById("registerForm");
+const successMessage = document.getElementById("successMessage");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault(); 
+    successMessage.style.display = "block";
+
+    form.reset();
+});
+    </script>
+
+</body>
+</html>
