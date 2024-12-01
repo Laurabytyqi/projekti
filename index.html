@@ -170,3 +170,31 @@
 </div>
 
     </div>
+<script>
+    var navbar = document.getElementById("navbar");
+
+    function togglebtn(){
+    navbar.classList.toggle("hidemenu");
+    }
+
+    function toggleForm() {
+const form = document.getElementById("registerForm");
+if (form.style.display === "block") {
+    form.style.display = "none";
+} else {
+    form.style.display = "block";
+}
+}
+const form = document.getElementById("registerForm");
+const successMessage = document.getElementById("successMessage");
+
+form.addEventListener("submit", function (event) {
+event.preventDefault(); 
+
+successMessage.style.display = "block";
+
+form.reset();
+});
+</script> 
+</body>
+</html>
